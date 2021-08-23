@@ -1,3 +1,6 @@
+import random
+
+
 class RecursiveRectangle:
 	def __init__(self, pos: (int, int), half_size: (int, int),
 	             bar_width_bounds: (int, int) = (8, 8),
@@ -73,3 +76,19 @@ class RecursiveRectangle:
 		tl = (self.x - self.half_width, self.y - self.half_height)
 		br = (self.x + self.half_width, self.y + self.half_height)
 		return tl, br
+
+	def generate(self):
+		"""Recursively generate an image using rectangles
+		"""
+		horizontal = False
+		vertical = False
+		new_level = random.random()
+		if new_level <= self.level_weights[self.level]:
+			if random.choice([True, False]):
+				horizontal = True
+			else:
+				vertical = True
+		if vertical:
+			pass
+		elif horizontal:
+			pass
