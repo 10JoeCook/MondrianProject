@@ -36,3 +36,17 @@ class RecursiveRectangle:
 		self.level_weights = level_weights
 		self.r1 = None
 		self.r2 = None
+
+	def get_width(self):
+		"""
+		:return: full width of the rectangle
+		:rtype: int
+		"""
+		return self.half_width * 2
+
+	def get_height(self):
+		"""
+		:return: full height of the rectangle
+		:rtype: int
+		"""
+		return self.half_height * 2
