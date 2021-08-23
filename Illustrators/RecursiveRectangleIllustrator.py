@@ -31,7 +31,8 @@ class RecursiveRectangleIllustrator:
 										fill=rect.color, width=random.randint(rect.bar_width_lower, rect.bar_width_upper))
 
 	def draw_new_img(self):
-		self.rect = RecursiveRectangle((self.rect.x, self.rect.y), (self.rect.half_width, self.rect.half_height), colors=self.rect.possible_colors)
+		self.rect = RecursiveRectangle((self.rect.x, self.rect.y), (self.rect.half_width, self.rect.half_height),
+		                               colors=self.rect.possible_colors, level_weights=self.rect.level_weights,)
 		self.rect.generate()
 		self.canvas.delete("all")
 		self.draw_img()

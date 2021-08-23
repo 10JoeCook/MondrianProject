@@ -9,7 +9,8 @@ class RecursiveRectangle:
 	             padding: float = 0.05,
 	             color: str = "#FFFFFF",
 	             colors: tuple = ("#000000", "#FF0000", "#FF0000", "#0000FF", "#0000FF", "#FFFF00", "#FFFF00", "#767676",
-	                              "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF")):
+	                              "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF"),
+	             generate: bool = False):
 		"""Recursive Rectangle, generates a Mondrian image by recursively fitting rectangles inside one another.
 
 		:param pos: Position of middle
@@ -39,6 +40,8 @@ class RecursiveRectangle:
 		self.level_weights = level_weights
 		self.r1 = None
 		self.r2 = None
+		if generate:
+			self.generate()
 
 	def get_width(self):
 		"""
@@ -96,15 +99,18 @@ class RecursiveRectangle:
 			right = self.x + self.half_width
 			self.r1 = RecursiveRectangle((round((left + split_pos) / 2), self.y),
 			                             (round((split_pos - left) / 2), self.half_height),
-			                             color=random.choice(self.possible_colors), colors=self.possible_colors,
+			                             color=random.choice(self.possible_colors),
+			                             colors=self.possible_colors,
 			                             level=self.level + 1,
 			                             level_weights=self.level_weights)
 			self.r1.generate()
 			self.r2 = RecursiveRectangle((round((right + split_pos) / 2), self.y),
 			                             (round((right - split_pos) / 2), self.half_height),
-			                             color=random.choice(self.possible_colors), colors=self.possible_colors,
+			                             color=random.choice(self.possible_colors),
+			                             colors=self.possible_colors,
 			                             level=self.level + 1,
 			                             level_weights=self.level_weights)
+			self.r2.generate()
 		elif horizontal:
 			lb = self.y - round(self.half_height * self.pad)
 			ub = self.y + round(self.half_height * self.pad)
@@ -113,12 +119,15 @@ class RecursiveRectangle:
 			bottom = self.y + self.half_height
 			self.r1 = RecursiveRectangle((self.x, round((top + split_pos) / 2)),
 			                             (self.half_width, round((split_pos - top) / 2)),
-			                             color=random.choice(self.possible_colors), colors=self.possible_colors,
+			                             color=random.choice(self.possible_colors),
+			                             colors=self.possible_colors,
 			                             level=self.level + 1,
 			                             level_weights=self.level_weights)
 			self.r1.generate()
 			self.r2 = RecursiveRectangle((self.x, round((bottom + split_pos) / 2)),
 			                             (self.half_width, round((bottom - split_pos) / 2)),
-			                             color=random.choice(self.possible_colors), colors=self.possible_colors,
+			                             color=random.choice(self.possible_colors),
+			                             colors=self.possible_colors,
 			                             level=self.level + 1,
 			                             level_weights=self.level_weights)
+			self.r2.generate()
