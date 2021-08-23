@@ -7,6 +7,25 @@ class RecursiveRectangle:
 	             color: str = "#FFFFFF",
 	             colors: tuple = ("#000000", "#FF0000", "#FF0000", "#0000FF", "#0000FF", "#FFFF00", "#FFFF00", "#767676",
 	                              "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF")):
+		"""Recursive Rectangle, generates a Mondrian image by recursively fitting rectangles inside one another.
+
+		:param pos: Position of middle
+		:type pos: tuple(int, int)
+		:param half_size: Width, Height
+		:type half_size: tuple(int, int)
+		:param padding: 0-1 fraction of width to use as padding
+		:type padding: float
+		:param bar_width_bounds: lower and upper bounds for border width
+		:type bar_width_bounds tuple(int, int)
+		:param color: Hex value representing color
+		:type color: str
+		:param level: level of the rectangle in the tree
+		:type level: int
+		:param level_weights: 0-1 chance of split at each level
+		:type level_weights: tuple
+		:param colors: contains all possible colours for the rectangles
+		:type colors: tuple(str, str, ...)
+		"""
 		self.x, self.y = pos
 		self.half_width, self.half_height = half_size
 		self.pad = padding
