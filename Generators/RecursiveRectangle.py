@@ -89,6 +89,36 @@ class RecursiveRectangle:
 			else:
 				vertical = True
 		if vertical:
-			pass
+			lb = self.x - round(self.half_width * self.pad)
+			ub = self.x + round(self.half_width * self.pad)
+			split_pos = random.randint(lb, ub)
+			left = self.x - self.half_width
+			right = self.x + self.half_width
+			self.r1 = RecursiveRectangle((round((left + split_pos) / 2), self.y),
+			                             (round((split_pos - left) / 2), self.half_height),
+			                             color=random.choice(self.possible_colors), colors=self.possible_colors,
+			                             level=self.level + 1,
+			                             level_weights=self.level_weights)
+			self.r1.generate()
+			self.r2 = RecursiveRectangle((round((right + split_pos) / 2), self.y),
+			                             (round((right - split_pos) / 2), self.half_height),
+			                             color=random.choice(self.possible_colors), colors=self.possible_colors,
+			                             level=self.level + 1,
+			                             level_weights=self.level_weights)
 		elif horizontal:
-			pass
+			lb = self.x - round(self.half_width * self.pad)
+			ub = self.x + round(self.half_width * self.pad)
+			split_pos = random.randint(lb, ub)
+			left = self.x - self.half_width
+			right = self.x + self.half_width
+			self.r1 = RecursiveRectangle((round((left + split_pos) / 2), self.y),
+			                             (round((split_pos - left) / 2), self.half_height),
+			                             color=random.choice(self.possible_colors), colors=self.possible_colors,
+			                             level=self.level + 1,
+			                             level_weights=self.level_weights)
+			self.r1.generate()
+			self.r2 = RecursiveRectangle((round((right + split_pos) / 2), self.y),
+			                             (round((right - split_pos) / 2), self.half_height),
+			                             color=random.choice(self.possible_colors), colors=self.possible_colors,
+			                             level=self.level + 1,
+			                             level_weights=self.level_weights)
