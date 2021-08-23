@@ -86,7 +86,7 @@ class RecursiveRectangle:
 		horizontal = False
 		vertical = False
 		new_level = random.random()
-		if new_level <= self.level_weights[self.level]:
+		if self.level < len(self.level_weights) and new_level <= self.level_weights[self.level]:
 			if random.choice([True, False]):
 				horizontal = True
 			else:
