@@ -50,3 +50,15 @@ class RecursiveRectangle:
 		:rtype: int
 		"""
 		return self.half_height * 2
+
+	def collect_rects(self):
+		"""recursively collect all the rectangles underneath and including this one
+		:return: list of rectangles underneath hsi one
+		:rtype: list
+		"""
+		res = [self]
+		if self.r1:
+			res += self.r1.collect_rects()
+		if self.r2:
+			res += self.r2.collect_rects()
+		return res
