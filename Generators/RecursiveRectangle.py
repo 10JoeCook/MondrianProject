@@ -9,8 +9,7 @@ class RecursiveRectangle:
 	             padding: float = 0.05,
 	             color: str = "#FFFFFF",
 	             colors: tuple = ("#000000", "#FF0000", "#FF0000", "#0000FF", "#0000FF", "#FFFF00", "#FFFF00", "#767676",
-	                              "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF"),
-	             generate: bool = False):
+	                              "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF")):
 		"""Recursive Rectangle, generates a Mondrian image by recursively fitting rectangles inside one another.
 
 		:param pos: Position of middle
@@ -40,8 +39,7 @@ class RecursiveRectangle:
 		self.level_weights = level_weights
 		self.r1 = None
 		self.r2 = None
-		if generate:
-			self.generate()
+		self.generate()
 
 	def get_width(self):
 		"""

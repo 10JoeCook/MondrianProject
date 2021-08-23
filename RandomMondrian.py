@@ -1,7 +1,7 @@
 from Generators.RecursiveRectangle import RecursiveRectangle
 from Illustrators.RecursiveRectangleIllustrator import RecursiveRectangleIllustrator
 
-rect = RecursiveRectangle((640, 360), (640, 360), generate=True)
+rect = RecursiveRectangle((640, 360), (640, 360))
 
 illustrator = RecursiveRectangleIllustrator(rect)
 
