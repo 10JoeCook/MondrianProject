@@ -106,19 +106,19 @@ class RecursiveRectangle:
 			                             level=self.level + 1,
 			                             level_weights=self.level_weights)
 		elif horizontal:
-			lb = self.x - round(self.half_width * self.pad)
-			ub = self.x + round(self.half_width * self.pad)
+			lb = self.y - round(self.half_height * self.pad)
+			ub = self.y + round(self.half_height * self.pad)
 			split_pos = random.randint(lb, ub)
-			left = self.x - self.half_width
-			right = self.x + self.half_width
-			self.r1 = RecursiveRectangle((round((left + split_pos) / 2), self.y),
-			                             (round((split_pos - left) / 2), self.half_height),
+			top = self.y - self.half_height
+			bottom = self.y + self.half_height
+			self.r1 = RecursiveRectangle((self.x, round((top + split_pos) / 2)),
+			                             (self.half_width, round((split_pos - top) / 2)),
 			                             color=random.choice(self.possible_colors), colors=self.possible_colors,
 			                             level=self.level + 1,
 			                             level_weights=self.level_weights)
 			self.r1.generate()
-			self.r2 = RecursiveRectangle((round((right + split_pos) / 2), self.y),
-			                             (round((right - split_pos) / 2), self.half_height),
+			self.r2 = RecursiveRectangle((self.x, round((bottom + split_pos) / 2)),
+			                             (self.half_width, round((bottom - split_pos) / 2)),
 			                             color=random.choice(self.possible_colors), colors=self.possible_colors,
 			                             level=self.level + 1,
 			                             level_weights=self.level_weights)

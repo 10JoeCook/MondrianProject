@@ -6,6 +6,11 @@ from PIL import Image
 
 class RecursiveRectangleIllustrator:
 	def __init__(self, rect: RecursiveRectangle):
+		""" init function for a Illustrator for recursive rectangles
+
+		:param rect: Rectangle to draw
+		:type rect: RecursiveRectangle
+		"""
 		self.rect = rect
 		self.save_no = 0
 		self.window = Tk()
