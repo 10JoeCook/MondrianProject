@@ -62,3 +62,14 @@ class RecursiveRectangle:
 		if self.r2:
 			res += self.r2.collect_rects()
 		return res
+
+	def get_tl_br(self):
+		"""get top left and bottom right co-ordinates
+
+		used for tkinter drawing
+		:return: tuple(tuple, tuple) with top left and br respectively
+		:rtype: tuple
+		"""
+		tl = (self.x - self.half_width, self.y - self.half_height)
+		br = (self.x + self.half_width, self.y + self.half_height)
+		return tl, br
