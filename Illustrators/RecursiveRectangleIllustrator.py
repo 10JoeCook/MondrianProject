@@ -1,6 +1,7 @@
 from Generators.RecursiveRectangle import RecursiveRectangle
 from tkinter import Tk, Canvas
 import random
+from PIL import Image
 
 
 class RecursiveRectangleIllustrator:
@@ -33,3 +34,10 @@ class RecursiveRectangleIllustrator:
 
 	def mouse_click(self, event):
 		self.draw_new_img()
+
+	def save_as_png(self, file_name):
+		# save postscipt image
+		self.canvas.postscript(file=file_name + '.eps')
+		# use PIL to convert to PNG
+		img = Image.open(file_name + '.eps')
+		img.save(file_name + '.png', 'png')
