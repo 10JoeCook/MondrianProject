@@ -12,3 +12,11 @@ class MondrianImg:
 		self.h_thick = hthick
 		self.rects = rects
 
+	def get_rects(self) -> list:
+		ret = []
+		for rect in self.rects:
+			tl = (self.v_pts[rect[0]], self.h_pts[rect[2]])
+			br = (self.v_pts[rect[1]], self.h_pts[rect[3]])
+			color = self.rect_colours[self.rects.index(rect)]
+			ret.append((tl, br, color))
+		return ret
