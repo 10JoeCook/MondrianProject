@@ -1,5 +1,5 @@
 from Generators.P1Rep import MondrianImg
-from Illustrators.P1Illustrator import P1Illustrator
+from Illustrators.AETALIllustrator import AETALIllustrator
 
 ex_rep = MondrianImg(600,
                      512,
@@ -14,5 +14,5 @@ ex_rep = MondrianImg(600,
 					 (1, 2, 2, 3), (2, 3, 2, 3), (3, 4, 2, 3), (4, 5, 2, 3), (5, 6, 2, 3),
 					 (1, 3, 3, 5), (3, 4, 3, 4), (4, 5, 3, 4), (5, 6, 3, 4), (3, 4, 4, 5),
 					 (4, 5, 4, 5), (5, 6, 4, 5)])
-ex_illustrator = P1Illustrator(ex_rep)
+ex_illustrator = AETALIllustrator(ex_rep)
 
