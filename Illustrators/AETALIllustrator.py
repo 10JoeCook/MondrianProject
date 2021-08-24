@@ -1,5 +1,6 @@
 from Generators.P1Rep import MondrianImg
 from tkinter import Tk, Canvas
+from PIL import Image
 
 
 class AETALIllustrator:
@@ -38,9 +39,11 @@ class ListIllustrator:
 	def __init__(self, images: list):
 		self.images = images
 		self.save_no = 0
+		self.img_count = 0
 		self.window = Tk()
 		self.canvas = Canvas(self.window, width=self.images[0].x_max, height=self.images[0].y_max)
 		self.canvas.pack()
+		self.canvas.bind("<Button-1>", self.mouse_click)
 		self.draw_img(self.images[0])
 		self.run()
 
@@ -64,3 +67,20 @@ class ListIllustrator:
 		for line in img.get_lines():
 			self.canvas.create_line(line[0][0], line[0][1], line[1][0], line[1][1],
 			                        fill="#000000", width=line[2])
+
+	def draw_new_img(self):
+		self.canvas.delete("all")
+		self.draw_img(self.images[self.img_count])
+		self.img_count += 1
+		# self.save_as_png(str(self.save_no))
+
+	def mouse_click(self, event):
+		self.draw_new_img()
+
+	def save_as_png(self, file_name):
+		# save postscipt image
+		self.canvas.postscript(file=file_name + '.eps')
+		# use PIL to convert to PNG
+		img = Image.open(file_name + '.eps')
+		img.save(file_name + '.png', 'png')
+		self.save_no += 1
