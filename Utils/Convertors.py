@@ -19,6 +19,9 @@ class MatToTxt:
 	def convert(self):
 		pass
 
+	def get_keys(self):
+		return str(self.file_contents.keys())
+
 	def get_version(self) -> str:
 		return self.file_contents["__version__"]
 
