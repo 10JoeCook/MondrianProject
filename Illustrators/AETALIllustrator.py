@@ -69,9 +69,11 @@ class ListIllustrator:
 			                        fill="#000000", width=line[2])
 
 	def draw_new_img(self):
-		self.canvas.delete("all")
-		self.draw_img(self.images[self.img_count])
-		self.img_count += 1
+		try:
+			self.canvas.delete("all")
+			self.draw_img(self.images[self.img_count])
+		finally:
+			self.img_count += 1
 		# self.save_as_png(str(self.save_no))
 
 	def mouse_click(self, event):
