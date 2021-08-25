@@ -29,6 +29,7 @@ class MatReader:
 		self.reps = self.file_contents["reps"]
 		self.reps = self.reps[0]
 		self.generate_image_objects()
+		self.generate_attr_lists()
 
 	def generate_image_objects(self):
 		for i in range(len(self.names)):
