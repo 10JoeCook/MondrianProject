@@ -55,7 +55,8 @@ class MatReader:
 			for i in range(len(rects)):
 				rects[i] = list(rects[i])
 			rect_colors = list(rep[9][0])
-			self.images.append(FormalMondrian(ymax,
+			self.images.append(FormalMondrian(name,
+											  ymax,
 			                                  xmax,
 			                                  vpts,
 			                                  hpts,

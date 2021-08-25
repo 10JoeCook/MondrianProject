@@ -1,6 +1,7 @@
 class FormalMondrian:
-	def __init__(self, ymax: int, xmax:int, vpts: list, hpts: list, rect_colors: list, vext: list, vthick: list,
+	def __init__(self, name: str, ymax: int, xmax:int, vpts: list, hpts: list, rect_colors: list, vext: list, vthick: list,
 	             hext: list, hthick: list, rects: list):
+		self.name = name
 		self.y_max = ymax
 		self.x_max = xmax
 		self.v_pts = vpts
