@@ -1,10 +1,10 @@
-from Generators.P1Rep import MondrianImg
+from Structures.Formal import FormalMondrian
 from tkinter import Tk, Canvas
 from PIL import Image
 
 
 class AETALIllustrator:
-	def __init__(self, img: MondrianImg):
+	def __init__(self, img: FormalMondrian):
 		self.img = img
 		self.save_no = 0
 		self.window = Tk()
@@ -50,7 +50,7 @@ class ListIllustrator:
 	def run(self):
 		self.window.mainloop()
 
-	def draw_img(self, img: MondrianImg):
+	def draw_img(self, img: FormalMondrian):
 		for rect in img.get_rects():
 			if rect[2] == 1:
 				color = "#FFFFFF"

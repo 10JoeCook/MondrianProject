@@ -1,4 +1,4 @@
-class MondrianImg:
+class FormalMondrian:
 	def __init__(self, ymax: int, xmax:int, vpts: list, hpts: list, rect_colors: list, vext: list, vthick: list,
 	             hext: list, hthick: list, rects: list):
 		self.y_max = ymax

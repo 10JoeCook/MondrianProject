@@ -1,4 +1,4 @@
-from Generators.RecursiveRectangle import RecursiveRectangle
+from Structures.RecursiveRectangle import RecursiveRectangle
 from tkinter import Tk, Canvas
 import random
 from PIL import Image

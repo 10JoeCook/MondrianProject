@@ -1,5 +1,5 @@
 import scipy.io
-from Generators.P1Rep import MondrianImg
+from Structures.Formal import FormalMondrian
 
 
 class MatReader:
@@ -54,16 +54,16 @@ class MatReader:
 			for i in range(len(rects)):
 				rects[i] = list(rects[i])
 			rect_colors = list(rep[9][0])
-			self.images.append(MondrianImg(ymax,
-			                               xmax,
-			                               vpts,
-			                               hpts,
-			                               rect_colors,
-			                               vext,
-			                               vthick,
-			                               hext,
-			                               hthick,
-			                               rects))
+			self.images.append(FormalMondrian(ymax,
+			                                  xmax,
+			                                  vpts,
+			                                  hpts,
+			                                  rect_colors,
+			                                  vext,
+			                                  vthick,
+			                                  hext,
+			                                  hthick,
+			                                  rects))
 
 	def generate_attr_lists(self):
 		self.attr_lists["ymax"] = []
